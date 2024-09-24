@@ -6,17 +6,25 @@ public class App
 {
     public static void main( String[] args )
     {
+        
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Uzrakstiet savu vārdu");
-        String name = scanner.nextLine();
+        int sum = 0;
+        int count = 0;
 
-        System.out.println("Uzrakstiet savu uzvārdu");
-        String surname = scanner.nextLine();
+    
+        while (true) {
 
-        System.out.println("Ievadiet savu grupu");
-        String group = scanner.nextLine();
-        
-        System.out.println("Students: " + name + " " + surname + ", grupa: " + group);
+            System.out.println("Ievadiet skaitli: ");
+            int num =  Integer.valueOf(scanner.nextLine());
+    
+            if (num == 0) {
+                break;
+            };
+                sum = sum + num;
+                count = count + 1;
+        }
+        System.out.println("Ievadīto skaitļu summa ir " + sum);
+        System.out.println("Ievadīto skaitļu skaits ir " + count);
     }
 }
