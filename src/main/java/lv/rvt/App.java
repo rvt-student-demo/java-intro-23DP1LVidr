@@ -1,83 +1,39 @@
 package lv.rvt;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {    
     public static void main(String[] args) {
-        printStars(5);
-        System.out.println("");
 
-        printStars(3);
-        System.out.println("");
+        Scanner reader = new Scanner(System.in);
+        ArrayList<Integer> intList = new ArrayList<>();
+        
+        System.out.println("Ievadiet skaitļus: ");
+        while (true) {
+            int input = Integer.valueOf(reader.nextLine());
+            if (input == -1) {
+                break;
+            }
+            intList.add(input);
+        }
+        System.out.println("No kura? ");
+        int start = Integer.valueOf(reader.nextLine());
 
-        printStars(9);
-        System.out.println("");
-        System.out.println("");
+        while (start > (intList.size()-1) || start<0) {
+            System.out.println("Elements neder, ievadiet citu.");
+            start = Integer.valueOf(reader.nextLine());
+        }
 
-        printSquare(4);
-        System.out.println("");
+        System.out.println("Līdz kuram? ");
+        int end = Integer.valueOf(reader.nextLine());
 
-        printRectangle(17,3);
-        System.out.println("");
-
-        printTriangle(4);
-        System.out.println("");
-
-        printTriangle2(4);
-        System.out.println("");
-
-        christmasTree(4);
+        while (start > end || end > (intList.size()-1) || end < 0) {
+            System.out.println("Elements neder, ievadiet citu. ");
+            end = Integer.valueOf(reader.nextLine());
+        }
         System.out.println();
-        christmasTree(10);
-    }
-
-
-    public static void printStars(int number) {
-        for (int i = 0; i < number; i++) {
-            System.out.print("*");
+        for (int i = start; i < end+1; i++){
+            System.out.println(intList.get(i));
         }
-    }
-    public static void printSquare(int size) {
-        for (int i = 0; i < size; i++) {
-            printStars(size);
-            System.out.println("");
-        }
-    }
-    public static void printRectangle(int width, int height) {
-        for (int i = 0; i < height; i++) {
-            printStars(width);
-            System.out.println("");
-        }
-    }
-    public static void printTriangle(int size) {
-        for (int i = 1; i < (size+1); i++) {
-            printStars(i);
-            System.out.println("");
-        }
-    }
-    public static void printSpaces(int number) {
-        for (int i = 0; i < number; i++) {
-            System.out.print(" ");
-        }
-    }
-    public static void printTriangle2(int size) {
-        for (int i = 1; i < (size+1); i++) {
-            printSpaces(size-i);
-            printStars(i);
-            System.out.println("");
-        }
-    }
-    public static void christmasTree(int size) {
-        for (int i = 1; i < (size+1); i++) {
-            printSpaces(size-i);
-            printStars(i);
-            printStars(i-1);
-            System.out.println("");
-        }
-        printSpaces(size-2);
-        printStars(3);
-        System.out.println();
-        printSpaces(size-2);
-        printStars(3);
-        System.out.println();
     }
 }
