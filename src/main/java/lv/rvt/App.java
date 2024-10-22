@@ -4,36 +4,26 @@ import java.util.Scanner;
 
 public class App {    
     public static void main(String[] args) {
-
-        Scanner reader = new Scanner(System.in);
-        ArrayList<Integer> intList = new ArrayList<>();
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(3);
+        numbers.add(2);
+        numbers.add(6);
+        numbers.add(-1);
+        numbers.add(5);
+        numbers.add(1);
         
-        System.out.println("Ievadiet skaitļus: ");
-        while (true) {
-            int input = Integer.valueOf(reader.nextLine());
-            if (input == -1) {
-                break;
+        System.out.println("The numbers in the range [0, 5]");
+        printNumbersInRange(numbers, 0, 5);
+        
+        System.out.println("The numbers in the range [3, 10]");
+        printNumbersInRange(numbers, 3, 10);
+        
+    }
+    public static void printNumbersInRange(ArrayList<Integer> numbers, int lowerLimit, int upperLimit) {
+        for (int value: numbers) {
+            if (value > (lowerLimit-1) && value < (upperLimit+1)) {
+                System.out.println(value);
             }
-            intList.add(input);
-        }
-        System.out.println("No kura? ");
-        int start = Integer.valueOf(reader.nextLine());
-
-        while (start > (intList.size()-1) || start<0) {
-            System.out.println("Elements neder, ievadiet citu.");
-            start = Integer.valueOf(reader.nextLine());
-        }
-
-        System.out.println("Līdz kuram? ");
-        int end = Integer.valueOf(reader.nextLine());
-
-        while (start > end || end > (intList.size()-1) || end < 0) {
-            System.out.println("Elements neder, ievadiet citu. ");
-            end = Integer.valueOf(reader.nextLine());
-        }
-        System.out.println();
-        for (int i = start; i < end+1; i++){
-            System.out.println(intList.get(i));
         }
     }
 }
