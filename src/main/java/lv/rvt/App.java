@@ -4,26 +4,29 @@ import java.util.Scanner;
 
 public class App {    
     public static void main(String[] args) {
-        ArrayList<Integer> numbers = new ArrayList<>();
-        numbers.add(3);
-        numbers.add(2);
-        numbers.add(6);
-        numbers.add(-1);
-        numbers.add(5);
-        numbers.add(1);
-        
-        System.out.println("The numbers in the range [0, 5]");
-        printNumbersInRange(numbers, 0, 5);
-        
-        System.out.println("The numbers in the range [3, 10]");
-        printNumbersInRange(numbers, 3, 10);
-        
-    }
-    public static void printNumbersInRange(ArrayList<Integer> numbers, int lowerLimit, int upperLimit) {
-        for (int value: numbers) {
-            if (value > (lowerLimit-1) && value < (upperLimit+1)) {
-                System.out.println(value);
-            }
+        Person pekka = new Person("Pekka");
+        Person antti = new Person("Antti");
+    
+        int i = 0;
+        while (i < 30) {
+            pekka.growOlder();
+            i = i + 1;
+        }
+    
+        antti.growOlder();
+    
+        System.out.println("");
+    
+        if (antti.isOfLegalAge()) {
+            System.out.println(antti.getName() + " is of legal age");
+        } else {
+            System.out.println(antti.getName() + " is underage");
+        }
+    
+        if (pekka.isOfLegalAge()) {
+            System.out.println(pekka.getName() + " is of legal age");
+        } else {
+            System.out.println(pekka.getName() + " is underage ");
         }
     }
 }
