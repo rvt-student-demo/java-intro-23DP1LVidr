@@ -12,6 +12,10 @@ public class Person {
         this.weight = initialWeight;
         this.height = initialHeight;
     }
+
+    public String toCsvRow() {
+        return this.name + ", " + this.age + ", " + this.weight + ", " + this.height;
+    }
     
     public void printPerson() {
         System.out.println(this.name + ", age " + this.age + " years");
@@ -33,6 +37,15 @@ public class Person {
     }
     public String getName() {
         return this.name;
+    }
+    public int getAge() {
+        return this.age;
+    }
+    public int getWeight() {
+        return this.weight;
+    }
+    public int getHeight() {
+        return this.height;
     }
     public String toString() {
         return this.name + ", age " + this.age + " years";
