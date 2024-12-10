@@ -9,24 +9,23 @@ import java.nio.file.StandardOpenOption;
 
 public class App {    
     public static void main(String[] args) {
-    
-        HealthStation childrensHospital = new HealthStation();
-    
-        Person ethan = new Person("Ethan", 1, 7, 110);
-        Person peter = new Person("Peter", 33, 85, 176);
-    
-        System.out.println("weighings performed: " + childrensHospital.weighings());
+        PaymentTerminal unicafeExactum = new PaymentTerminal();
+        System.out.println(unicafeExactum);
 
-        childrensHospital.weigh(ethan);
-        childrensHospital.weigh(peter);
-    
-        System.out.println("weighings performed: " + childrensHospital.weighings());
-    
-        childrensHospital.weigh(ethan);
-        childrensHospital.weigh(ethan);
-        childrensHospital.weigh(ethan);
-        childrensHospital.weigh(ethan);
-    
-        System.out.println("weighings performed: " + childrensHospital.weighings());
+        PaymentCard annesCard = new PaymentCard(2);
+
+        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
+
+        boolean wasSuccessful = unicafeExactum.eatHeartily(annesCard);
+        System.out.println("there was enough money: " + wasSuccessful);
+
+        unicafeExactum.addMoneyToCard(annesCard, 100);
+
+        wasSuccessful = unicafeExactum.eatHeartily(annesCard);
+        System.out.println("there was enough money: " + wasSuccessful);
+
+        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
+
+        System.out.println(unicafeExactum);
     }
 }

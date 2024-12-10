@@ -6,6 +6,18 @@ public class PaymentCard {
     public PaymentCard(double openingBalance) {
         balance = openingBalance;
     }
+    public double balance() {
+        return this.balance;
+    }
+
+    public boolean takeMoney(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            return true;
+        } else{
+            return false;
+        }
+    }
 
     public String toString() {
         return "The card has a balance of " + this.balance + " euros";
