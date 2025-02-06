@@ -5,12 +5,18 @@ public class Person {
     private int age;
     private int weight;
     private int height;
+    private String adress;
 
     public Person(String initialName, int initialAge, int initialWeight, int initialHeight) {
         this.age = initialAge;
         this.name = initialName;
         this.weight = initialWeight;
         this.height = initialHeight;
+    }
+
+    public Person(String name, String adress){
+        this.name = name;
+        this.adress = adress;
     }
 
     public String toCsvRow() {
@@ -45,7 +51,7 @@ public class Person {
         return this.height;
     }
     public String toString() {
-        return this.name + ", age " + this.age + " years";
+        return this.name + "\n      " + this.adress;
     }
     public void setHeight(int newHeight) {
         this.height = newHeight;
